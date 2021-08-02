@@ -1,25 +1,70 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {ethers} from "ethers";
 import './App.css';
+import { abi } from './contractABI'
+import Menu from './Menu'
+import Mint from './Mint'
+import Gallery from './Gallery'
+
+const address = '0x83a775e96910b43a5E52d684247BbFa2Fe4920F3';
+const contractAbi = abi;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+async function requestAccount() {
+  await window.ethereum.request({ method: 'eth_requestAccounts' });
 }
 
+async function authenticate() {
+  if (typeof window.ethereum !== 'undefined') {
+    await requestAccount();
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const ethAddress = await signer.getAddress();
+    console.log("Eth Address: ", ethAddress);
+    setIsLoggedIn(true);
+  }
+}
+
+async function loadContract() {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const erc721 = new ethers.Contract(address, contractAbi, provider);
+}
+
+if (!isLoggedIn) {
+    return(
+      <div className="App">
+            <header className="intro">
+              <img className="logo" alt="logo_image" src="https://www.coinsmos.com/static/images/coinsmoslogo.922cb8304622.png"/>
+              <button className="btn1" onClick={() => authenticate()}>Sign in</button>
+              <p>
+                Welcome
+              </p>
+            </header>
+          </div>
+        );
+  }
+
+  return (
+    <Router>
+    <React.Fragment>
+      <div className="walletAddress">{'0x29fb'.substring(0, 6) + '...' + 'fb60'.slice(-5)}</div>
+      <Switch>
+        <Route exact path="/">
+          <Menu/>
+        </Route>
+        <Route path="/mint">
+          <Mint/>
+        </Route>
+        <Route path="/gallery">
+          <Gallery/>
+        </Route>
+      </Switch>
+    </React.Fragment>
+  </Router>
+);
+}
 export default App;
