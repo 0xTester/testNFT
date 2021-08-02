@@ -10,8 +10,10 @@ import Gallery from './Gallery'
 const address = '0x83a775e96910b43a5E52d684247BbFa2Fe4920F3';
 const contractAbi = abi;
 
+
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(false);
+const [wallet, setWallet] = useState('');
 
 async function requestAccount() {
   await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -25,6 +27,7 @@ async function authenticate() {
     const ethAddress = await signer.getAddress();
     console.log("Eth Address: ", ethAddress);
     setIsLoggedIn(true);
+    setWallet(ethAddress);
   }
 }
 
@@ -32,6 +35,13 @@ async function loadContract() {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const erc721 = new ethers.Contract(address, contractAbi, provider);
+}
+
+async function userInfo() {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const ethAddress = await signer.getAddress();
+  setWallet(ethAddress);
 }
 
 if (!isLoggedIn) {
@@ -51,7 +61,7 @@ if (!isLoggedIn) {
   return (
     <Router>
     <React.Fragment>
-      <div className="walletAddress">{'0x29fb'.substring(0, 6) + '...' + 'fb60'.slice(-5)}</div>
+      <div className="walletAddress">{wallet.substring(0,6)+'...'+wallet.slice(-4)}</div>
       <Switch>
         <Route exact path="/">
           <Menu/>
