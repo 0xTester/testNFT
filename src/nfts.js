@@ -16,5 +16,11 @@ export const nfts = [
   img: 'https://www.coinsmos.com/static/images/coinsmoslogo.922cb8304622.png',
   title: 'NFT#3',
   description: 'NFT3 of the collection'
+},
+{
+  id: 4,
+  img: 'https://www.coinsmos.com/static/images/coinsmoslogo.922cb8304622.png',
+  title: 'NFT#3',
+  description: 'NFT3 of the collection'
 }
 ];

@@ -2,13 +2,11 @@ import React, {useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {ethers} from "ethers";
 import './App.css';
-import { abi } from './contractABI'
 import Menu from './Menu'
 import Mint from './Mint'
 import Gallery from './Gallery'
 
 const address = '0x83a775e96910b43a5E52d684247BbFa2Fe4920F3';
-const contractAbi = abi;
 
 
 function App() {
@@ -29,19 +27,6 @@ async function authenticate() {
     setIsLoggedIn(true);
     setWallet(ethAddress);
   }
-}
-
-async function loadContract() {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const erc721 = new ethers.Contract(address, contractAbi, provider);
-}
-
-async function userInfo() {
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const ethAddress = await signer.getAddress();
-  setWallet(ethAddress);
 }
 
 if (!isLoggedIn) {
