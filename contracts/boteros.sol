@@ -24,7 +24,7 @@ contract boteros is ERC721Enumerable, Ownable {
 
   function mintOneBotero() external payable {
     require (saleIsActive == true, 'Sale is over');
-    require (totalSupply() + 1 < MAX_BOTEROS, 'Cant mint another botero');
+    require (totalSupply() + 1 <= MAX_BOTEROS, 'Cant mint another botero');
     require (msg.value >= unitPrice, '1 botero costs 0.10 ether');
 
     _mintBotero(1, msg.sender);
