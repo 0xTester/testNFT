@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { nfts } from './nfts'
 import Nft from './Nft'
-import { OpenSeaPort, Network } from 'opensea-js'
 import {ethers} from "ethers";
 import Boteros from './Boteros.json'
 
