@@ -26,6 +26,7 @@ async function authenticate() {
     console.log("Eth Address: ", ethAddress);
     setIsLoggedIn(true);
     setWallet(ethAddress);
+    console.log(typeof wallet);
   }
 }
 

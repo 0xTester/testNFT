@@ -1,12 +1,11 @@
 import React from 'react'
 
-const Nft = ({img, title, description}) => {
+const Nft = ({ description, image}) => {
 
 return (
     <article className="nft">
-      <img src={img} alt="NFT object" className="nftimage"/>
-      <h1>{title}</h1>
-      <h4>{description}</h4>
+      <img src={ image } alt="NFT object" className="nftimage"/>
+      <h2>{ description }</h2>
     </article>
 );
 }

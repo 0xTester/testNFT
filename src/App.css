@@ -4,7 +4,7 @@
 
 @media screen and (min-width:768px){
   .gallery {
-    position: absolute;
+    margin: auto;
     grid-template-columns: repeat(3, 1fr);
     background-color: #282c34;
     /* align-items: start; cada objeto tiene su tamaño dependiendo del contenido */
@@ -15,6 +15,11 @@ body {
   background-color: #282c34;
 }
 
+.btn4 {
+  position: absolute;
+  margin-left: 8rem;
+  margin-top: 2rem;
+}
 .walletAddress {
   position: absolute;
   font-size: 18px;
@@ -30,7 +35,7 @@ body {
 
 .gallery {
   display: block;
-  margin:0 auto;
+  margin: auto;
   width: 90vw;
   max-width: 1170px;
   margin: 5rem auto;
@@ -40,17 +45,18 @@ body {
 
 .nftimage {
   display: block;
+  border-radius: 1rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: 5rem;
+  max-width: 15rem;
 }
 
 .nft{
   background:#fff;
   border-radius: 1rem;
   padding: 1rem 2rem;
-  max-width: 10rem;
-  max-height: 10rem;
+  max-width: 15rem;
+  max-height: 18rem;
 }
 
 .nft h1{
@@ -123,7 +129,6 @@ a {
 }
 
 .btn3 {
-    position:absolute;
     left: 0;
     margin-top: 1rem;
     margin-left: 1rem;
