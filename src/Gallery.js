@@ -6,10 +6,9 @@ import Boteros from './Boteros.json'
 
 const Gallery = () => {
 
-  const contractAddress = '0x3c21642Ad0F09062F9ff4BE895939090092b2C4a';
+  const contractAddress = '0xc6684E23FcDfA7aC095a945F51635025CBfA6efB';
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const [wallet, setWallet] = useState('');
-  const [botBalance, setBalance] = useState(null);
   const [collection, setCollection] = useState([]);
 
 
@@ -20,8 +19,6 @@ async function balance() {
   const ethAddress = await signer.getAddress();
   setWallet(ethAddress);
   const boteroBalance = await readOnlyContract.balanceOf(ethAddress);
-  console.log(boteroBalance.toString());
-  setBalance(boteroBalance.toString());
 
   const boteroArray = [];
 
@@ -37,7 +34,6 @@ async function balance() {
 
 }
 
-console.log(collection);
 balance();
 
 return (

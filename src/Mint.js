@@ -5,7 +5,7 @@ import {ethers} from "ethers";
 
 const Mint = () => {
 
-  const contractAddress = '0x3c21642Ad0F09062F9ff4BE895939090092b2C4a';
+  const contractAddress = '0xc6684E23FcDfA7aC095a945F51635025CBfA6efB';
   const provider = new ethers.providers.Web3Provider(window.ethereum);
 
   const [botCount, setBotCount] = useState(0); //RE-view THIS FUNCTION

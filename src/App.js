@@ -5,9 +5,7 @@ import './App.css';
 import Menu from './Menu'
 import Mint from './Mint'
 import Gallery from './Gallery'
-
-const address = '0x83a775e96910b43a5E52d684247BbFa2Fe4920F3';
-
+import Traits from './Traits'
 
 function App() {
 const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -57,6 +55,9 @@ if (!isLoggedIn) {
         </Route>
         <Route path="/gallery">
           <Gallery/>
+        </Route>
+        <Route path="/traits">
+          <Traits/>
         </Route>
       </Switch>
     </React.Fragment>

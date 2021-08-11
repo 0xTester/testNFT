@@ -15,6 +15,23 @@ body {
   background-color: #282c34;
 }
 
+.nftimginfo {
+
+}
+
+.NFTinfo {
+
+}
+
+.infocard {
+  
+}
+
+.btnBotero {
+  cursor: pointer;
+  border: none;
+}
+
 .btn4 {
   position: absolute;
   margin-left: 8rem;
