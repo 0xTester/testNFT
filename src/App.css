@@ -15,16 +15,27 @@ body {
   background-color: #282c34;
 }
 
-.nftimginfo {
-
-}
-
-.NFTinfo {
-
-}
 
 .infocard {
-  
+  display: block;
+  background:#fff;
+  margin: auto;
+  width: 50rem;
+  height: 25rem;
+  margin-top: 1.23rem;
+  border-radius: 10px;
+}
+.nftimg {
+  border-radius: 10px;
+  float: left;
+  max-height: 25rem;
+  max-width: 25rem;
+  object-fit: cover;
+  padding-right: 1rem;
+}
+
+.info {
+  padding-top: 1rem;
 }
 
 .btnBotero {
@@ -43,7 +54,7 @@ body {
   color: white;
   right: 0;
   margin-right: 9rem;
-  margin-top: 1.23rem;
+  margin-top: 1.20rem;
   border-style: solid;
   padding: 5px 12px;
   border-radius: 12px;
