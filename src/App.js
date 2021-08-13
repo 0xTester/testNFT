@@ -30,15 +30,16 @@ async function authenticate() {
 
 if (!isLoggedIn) {
     return(
-      <div className="App">
-            <header className="intro">
-              <img className="logo" alt="logo_image" src="https://www.coinsmos.com/static/images/coinsmoslogo.922cb8304622.png"/>
-              <button className="btn1" onClick={() => authenticate()}>Sign in</button>
-              <p>
-                Welcome
-              </p>
-            </header>
-          </div>
+      <React.Fragment>
+        <button className="btn1" onClick={() => authenticate()}>Sign in</button>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Menu/>
+            </Route>
+          </Switch>
+        </Router>
+      </React.Fragment>
         );
   }
 
